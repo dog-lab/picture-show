@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script>
+$(function() {
+    $(".fadein > div:gt(0)").hide();
+
+    setInterval(function() {
+        $('.fadein > div:first')
+                .fadeOut(1000)
+                .next()
+                .fadeIn(1000)
+                .end()
+                .appendTo('.fadein');
+    },  3000);
+});
+    </script>
+    <style>
+        .fadein {
+            position: relative;
+        }
+
+        .fadein > div {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .fadein >  div > p {
+            min-width: 80%;
+            position: absolute;
+            display: b
+            font-size: smaller;lock;
+            bottom: 0;
+            font-weight: bolder;
+            right: 0;
+            padding: 0.50em;
+            text-align: right;
+            background: #333;
+            opacity: 0.70;
+            color: #fff;
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr='#999', endColorstr='#333'); /*For IE7-8-9*/
+            background: linear-gradient(to right, #999,#333);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+<!-- see http://css-tricks.com/snippets/jquery/simple-auto-playing-slideshow/
+
+and
+
+http://snook.ca/archives/javascript/simplest-jquery-slideshow
+-->
+<div class="fadein">
+    <div>
+        <img src="http://lorempixel.com/400/200/sports/1/Picture One/" style="width: 100%; height: auto;">
+        <p>Caption One</p>
+    </div>
+    <div>
+        <img src="http://lorempixel.com/400/200/sports/2/Picture Two/" style="width: 100%; height: auto;">
+        <p>Caption Two</p>
+    </div>
+    <div>
+        <img src="http://lorempixel.com/400/200/sports/3/Picture Three/" style="width: 100%; height: auto;">
+        <p>Caption Three</p>
+    </div>
+    <div>
+        <img src="http://lorempixel.com/400/200/sports/4/Picture Four/" style="width: 100%; height: auto;">
+        <p>Caption Four</p>
+    </div>
+    <div>
+        <img src="http://lorempixel.com/400/200/sports/5/Picture Five/" style="width: 100%; height: auto;">
+        <p>Caption Five</p>
+    </div>
+</div>
+</body>
+</html>

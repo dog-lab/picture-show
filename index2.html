@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Picture Show</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <style>
+.imageList li {
+    display: block;
+    margin: 0;
+    position: absolute;
+}
+    </style>
+</head>
+<body>
+<div>
+<ul class="imageList" style="display:block; margin: 0;">
+    <li><img src="http://lorempixel.com/400/200/sports/1/" alt="" /></li>
+    <li><img src="http://lorempixel.com/400/200/sports/2/" alt="" /></li>
+    <li><img src="http://lorempixel.com/400/200/sports/3/" alt="" /></li>
+    <li><img src="http://lorempixel.com/400/200/sports/4/" alt="" /></li>
+    <li><img src="http://lorempixel.com/400/200/sports/5/" alt="" /></li>
+</ul>
+</div>
+<script>
+    (function ($) {
+        "use strict";
+        $.fn.showSlides = function () {
+            return this.each(function () {
+                var
+                    i = 0,
+                    children = $(this).children(),
+                    count = children.length,
+                    to = function () { setTimeout(loop, 5000); }
+                ;
+
+                children.hide().eq(0).show();
+                to();
+
+                function loop() {
+                    var j = i + 1;
+
+                    if (j == count) {
+                        j = 0;
+                    }
+
+                    $(children[i]).fadeOut(500);
+                    $(children[j]).fadeIn(500, to);
+                    //$(children[i]).slideToggle(1000);
+                    //$(children[j]).slideToggle(1000, to);
+                    //$(children[i]).toggle(1000);
+                    //$(children[j]).toggle(1000, to);
+                    i = j;
+                }
+            });
+        };
+        $(function () { $('.imageList').showSlides(); });
+    })(jQuery);
+</script>
+</body>
+</html>
